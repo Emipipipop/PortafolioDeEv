@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información del Estudiante</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .marco-informacion {
+      max-width: 600px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.95));
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      backdrop-filter: blur(10px);
+      animation: aparecer 0.8s ease-out;
+    }
+    
+    .marco-informacion::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: linear-gradient(45deg, #6a11cb, #2575fc, #ff6b6b, #4facfe, #00f2fe);
+      border-radius: 24px;
+      z-index: -1;
+      animation: girarBorde 4s linear infinite;
+    }
+    
+    .titulo-marco {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #6a11cb, #2575fc, #ff6b6b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .info-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(106, 17, 203, 0.2);
+    }
+    
+    .info-label {
+      font-weight: bold;
+      color: #2c3e50;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+    
+    .info-valor {
+      color: #1a2530;
+      font-size: 1.3rem;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      border-left: 4px solid #2575fc;
+    }
+    
+    .boton-volver {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+      text-align: center;
+      width: 100%;
+    }
+    
+    .boton-volver:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4);
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+    }
+    
+   /* @keyframes girarBorde {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }*/
+    
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .marco-informacion {
+        padding: 2rem;
+        margin: 1rem;
+      }
+      
+      .titulo-marco {
+        font-size: 2rem;
+      }
+      
+      .info-valor {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .marco-informacion {
+        padding: 1.5rem;
+      }
+      
+      .titulo-marco {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  
+  <div class="marco-informacion">
+    <h1 class="titulo-marco">Información del Estudiante</h1>
+    
+    <div class="info-item">
+      <span class="info-label">Tecnológico de Software</span>
+      <div class="info-valor">Tecnológico de Software</div>
+    </div>
+    
+    <div class="info-item">
+      <span class="info-label">Alumno</span>
+      <div class="info-valor">Francisco Emilio Esquivel Torres</div>
+    </div>
+    
+    <div class="info-item">
+      <span class="info-label">Grupo</span>
+      <div class="info-valor">1B</div>
+    </div>
+    
+    <div class="info-item">
+      <span class="info-label">Maestro</span>
+      <div class="info-valor">Jorge Javier Pedroza</div>
+    </div>
+    
+    <a href="index.html" class="boton-volver">Volver al Menú</a>
+  </div>
+</body>
+</html>

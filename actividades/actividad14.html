@@ -1,0 +1,278 @@
+<!-- Estructura básica del documento HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simbólica Ecuaciones Lineales</title>
+<style>
+    
+    body {
+    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef4f7;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;*/
+
+     font-family: -apple-system, BlinkMacSystemFont, 'Zen Dots', Roboto, sans-serif;
+    background: linear-gradient(-45deg, #6ff422, #c1ca46 , #e66aa0,#3f2c9d, #2c04cb);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    color: black;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    background-color: #b9a2fe;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+}
+
+h1 {
+    color: #291e8c;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.2em;
+}
+
+h2 {
+    color: #9d2867;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #bdc3c7;
+    margin: 30px 0;
+}
+
+.solver-section {
+    margin-bottom: 30px;
+}
+
+.solver-section p {
+    margin-bottom: 15px;
+    color: #485be9;
+}
+
+/* Estilos para inputs */
+#ecuacion,
+#formulaLiteral {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: 'Zen Dots', monospace;
+}
+
+.formula-input-container {
+    margin-bottom: 20px;
+}
+
+.formula-input-container label {
+    display: block;
+    font-weight: bold;
+    color: #9d2867;
+    margin-bottom: 8px;
+}
+
+button {
+    background-color: #9d2867;
+    color: white;
+    padding: 12px 25px;
+    font-family: "Zen Dots", calibri;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.result-box {
+    background-color: #b9a2fe;
+    border: 1px solid none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin-top: 15px;
+    min-height: 20px;
+}
+
+.result-box:empty {
+    display: none;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+/* Estilos para la tabla de despejes */
+.result-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #b9a2fe;
+}
+
+.result-box table thead {
+    background-color: #34495e;
+    color: white;
+}
+
+.result-box table th,
+.result-box table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #bdc3c7;
+}
+
+.result-box table th {
+    font-weight: bold;
+}
+
+.result-box table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.result-box table tbody tr:hover {
+    background-color: #e8f4f8;
+}
+
+.result-box pre {
+    margin: 0;
+    font-family: 'Zen Dots', monospace;
+    font-size: 1em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.result-box .formula-original {
+    background-color: none;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.result-box .nota-didactica {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 0.95em;
+    color: #856404;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto 1fr;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-grid label {
+    font-weight: bold;
+    color: #34495e;
+    text-align: right;
+}
+
+.input-grid input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Calculadora Simbólica de Ecuaciones</h1>
+
+        <section class="solver-section">
+            <h2>1. Solución de Ecuaciones de una Variable (x)</h2>
+            <p>Introduce la ecuación lineal para despejar <strong>x</strong> (ej: 2x + 3 = x + 8):</p>
+            <input type="text" id="ecuacion" value="2x + 3 = x + 8">
+            <button onclick="resolverEcuacionParseada()">Resolver</button>
+            <div id="resDespejeParseado" class="result-box"></div>
+            <div id="mensajeError" class="error-message"></div>
+        </section>
+
+        <hr>
+
+        <section class="solver-section">
+            <h2>2. Despeje Simbólico de Fórmulas</h2>
+            <p>Introduce cualquier fórmula matemática (ej: C = 5(F - 32)/9):</p>
+            
+            <div class="formula-input-container">
+                <label for="formulaLiteral">Fórmula:</label>
+                <input type="text" id="formulaLiteral" value="C = 5(F - 32)/9" placeholder="Ej: T = F*c/r">
+            </div>
+            
+            <button onclick="procesarFormulaLiteral()">Generar Despejes Simbólicos</button>
+
+            <div id="resFormulaLiteral" class="result-box"></div>
+            <div id="mensajeErrorFormula" class="error-message"></div>
+        </section>
+
+         <section class="datos-personales">
+       <h2>Datos del Estudiante</h2>
+       <ul>
+
+        <section  class="Datos-personales-sub">
+        <strong>Tecnologico de Software</strong>
+        <li><strong>Nombre:</strong> Francisco Emilio Esquivel Torres</li>
+        <li><strong>Grado y Grupo:</strong> 1B</li>
+        <li><strong>Maestro:</strong> Jorge Javier Pedroza Romero</li>
+       </ul>
+       </section>
+</section>
+    </div>
+    <script src="script14.js"></script>
+</body>
+</html>

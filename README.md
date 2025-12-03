@@ -13,7 +13,7 @@
 
 ## 📋 Descripción del Proyecto
 
-Este repositorio contiene mi solución a la práctica de **Fundamentos de Programación**, donde utilizamos distintos proyectos del cueros para poder implementarlos en un menu html y poder tener una documentacion de ello y ademas un facil acceso
+Este repositorio contiene mi solución a la práctica de **Fundamentos de Programación**, donde utilizamos distintos proyectos del curso para poder implementarlos en un menu html y poder tener una documentacion de ello y ademas un facil acceso
 
 ## 🎯 Objetivos Alcanzados
 

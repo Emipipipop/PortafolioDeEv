@@ -102,6 +102,22 @@ header {
   animation: brilloTitulo 3s ease-in-out infinite;
 }
 
+.Nombre {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #ffffff, #f0f0f0, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: brilloTitulo 3s ease-in-out infinite;
+}
+
 @keyframes aparecer {
   from {
     opacity: 0;
